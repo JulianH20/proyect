@@ -1,10 +1,9 @@
 const http = require('http');
-const apiRoutes = require('./routes/api')
 
 const hostname = '127.0.0.1';
 const port = 3000;
 
-const server = http.createServer((res) => {
+const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
     res.end('Hola Mundo\n');
@@ -34,9 +33,3 @@ app.post('/', (req, res) => {
     console.log(req.body);
     res.send('Data received');
 })
-
-app.get('/api/posts/', apiRoutes.loadPosts)
-app.get('/api/posts/:id', apiRoutes.loadPost)
-app.post('/api/posts/', apiRoutes.newPost)
-app.put('/api/posts/', apiRoutes.updatePost) // No lleva parámetro id, ya que lo mandamos en el body.
-app.delete('/api/posts/:id', apiRoutes.deletePost)
