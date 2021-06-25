@@ -3,7 +3,7 @@ const Db = require('../lib/post')
 module.exports = {
     loadPosts: async (req, res) => {
         const Entries = await Db.getPosts()
-        res.status(200) // 200 => Todo está O.K.
+        res.status(200) // 200 => Todo está en orden.
         res.json(Entries)
     },
     loadPost: async (req, res) => {
@@ -13,7 +13,7 @@ module.exports = {
     },
     newPost: async (req, res) => {
         const newEntry = await Db.createOrUpdatePost(req.body)
-        res.status(201) // 201 => Hay nuevo contenido.
+        res.status(201) // 201 => Se encontro nuevo contenido.
         res.json(newEntry)
     },
     updatePost: async (req, res) => {
